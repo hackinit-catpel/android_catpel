@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/dialog"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TimePicker
+        android:id="@+id/alert_time_picker"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"></TimePicker>
+    <TextView
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/cur_display"
+        android:layout_width="350dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/alert_time_picker"
+        android:layout_marginTop="14dp" />
+    <TextView
+        android:id="@+id/five_minutes"
+        android:text="5"
+        android:textSize="70dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cur_display"
+        android:layout_alignLeft="@+id/cur_display"
+        android:layout_alignStart="@+id/cur_display" />
+    <TextView
+        android:id="@+id/ten_minutes"
+        android:text="10"
+        android:textSize="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cur_display"
+        android:layout_toLeftOf="@+id/tfive_minutes"
+        android:layout_toStartOf="@+id/tfive_minutes"
+        android:layout_marginRight="69dp"
+        android:layout_marginEnd="69dp" />
+    <TextView
+        android:id="@+id/tfive_minutes"
+        android:text="25"
+        android:textSize="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cur_display"
+        android:layout_alignRight="@+id/alert_time_picker"
+        android:layout_alignEnd="@+id/alert_time_picker" />
+</RelativeLayout>

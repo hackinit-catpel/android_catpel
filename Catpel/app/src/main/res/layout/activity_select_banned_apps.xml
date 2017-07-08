@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+    </android.support.v7.widget.Toolbar>
+
+    <ListView
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/select_banedapp_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></ListView>
+
+        <Button
+            android:layout_marginBottom="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/select_banned_button"
+            android:text="确定"
+            android:id="@+id/fin_banned"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
+
+</RelativeLayout>

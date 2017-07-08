@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/login_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.muxistudio.catpel.CompelSystem.LoginActivity"
+    tools:showIn="@layout/app_bar_login">
+
+
+    <TextView
+        android:id="@+id/time_container"
+        android:text="50"
+        android:textSize="70dp"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="45dp"
+        />
+    <TextView
+        android:text="/"
+        android:textColor="@color/colorAccent"
+        android:textSize="80dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="140dp"
+        android:id="@+id/time_container_slash"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        />
+
+    <TextView
+        android:textSize="25dp"
+        android:textColor="@color/colorAccent"
+        android:text="100"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="103dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/time_container2" />
+
+    <TextView
+        android:textSize="25dp"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/colorWhite"
+        android:text="min"
+        android:layout_toRightOf="@+id/time_container2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_marginRight="18dp"
+        android:layout_marginEnd="18dp" />
+
+    <RelativeLayout
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="300dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp">
+
+    <TextView
+        android:id="@+id/pet_status"
+        android:textSize="20dp"
+        android:layout_centerInParent="true"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/pet_shape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    </RelativeLayout>
+
+
+
+    <ImageView
+        android:id="@+id/animal_img"
+        android:src="@mipmap/egg"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_below="@+id/time_container2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp" />
+
+</RelativeLayout>

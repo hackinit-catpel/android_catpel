@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    android:id="@+id/banned_item"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
+
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="50dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        />
+    <TextView
+        android:layout_centerVertical="true"
+        android:id="@+id/app_packagename"
+        android:layout_toRightOf="@+id/app_icon"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+    <CheckBox
+        android:checked="false"
+        android:id="@+id/app_chechbox"
+        android:layout_alignParentRight="true"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
+
+</RelativeLayout>

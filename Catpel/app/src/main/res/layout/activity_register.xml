@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/login_regi"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:src="@mipmap/loginwor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:background="@drawable/login_round"
+        android:layout_marginTop="230dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="400dp"
+        android:layout_height="300dp" />
+
+    <ImageView
+        android:src="@mipmap/loginicon2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/imageView" />
+
+    <EditText
+        android:layout_marginTop="250dp"
+       android:layout_centerHorizontal="true"
+        android:background="@color/colorWhite"
+        android:hint="请输入用户名"
+        android:id="@+id/user_name"
+        android:layout_width="250dp"
+        android:layout_height="40dp" />
+
+    <EditText
+        android:id="@+id/user_password"
+        android:background="@color/colorWhite"
+        android:hint="密码"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/retype_user_password"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/retype_user_password"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorWhite"
+        android:hint="密码"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="325dp"
+         />
+
+    <Button
+        android:text="注册"
+        android:textSize="20dp"
+        android:textColor="@color/colorWhite"
+        android:id="@+id/regi_button"
+        android:background="@color/colorPrimary"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/user_password"
+        android:layout_alignLeft="@+id/user_password"
+        android:layout_alignStart="@+id/user_password"
+        android:layout_marginTop="38dp" />
+
+</RelativeLayout>
