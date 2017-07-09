@@ -13,7 +13,7 @@ import android.util.Log;
 
 import com.muxistudio.catpel.Model.App;
 import com.muxistudio.catpel.Model.IRetrofit;
-import com.muxistudio.catpel.Model.UserInfo3;
+import com.muxistudio.catpel.POJO.UserInfo3;
 import com.muxistudio.catpel.R;
 
 import java.util.Timer;

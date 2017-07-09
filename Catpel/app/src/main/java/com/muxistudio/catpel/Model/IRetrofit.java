@@ -1,5 +1,12 @@
 package com.muxistudio.catpel.Model;
 
+import com.muxistudio.catpel.POJO.UserInfo0;
+import com.muxistudio.catpel.POJO.UserInfo3;
+import com.muxistudio.catpel.POJO.UserInfo4;
+import com.muxistudio.catpel.POJO.UserPetInfo;
+import com.muxistudio.catpel.POJO.UsrInfo;
+import com.muxistudio.catpel.POJO.UsrInfo2;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

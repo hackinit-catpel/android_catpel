@@ -206,6 +206,8 @@ public class SelectBannedAppsActivity extends AppCompatActivity {
     private  void initview(){
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.colorPrimary));
+
         finButton = (Button) findViewById(R.id.fin_banned);
         finButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,6 +219,8 @@ public class SelectBannedAppsActivity extends AppCompatActivity {
         list = getAppInfos();
         TextView textView = new TextView(this);
         textView.setText("推荐禁用的App");
+        textView.setTextSize(35);
+        textView.setTextColor(getResources().getColor(R.color.colorPrimary));
         listView.addHeaderView(textView);
         MyAdapter adapter = new MyAdapter(SelectBannedAppsActivity.this,R.layout.banned_app_item,
                 list);
@@ -263,7 +267,6 @@ public class SelectBannedAppsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select_banned_apps);
 
         initview();
-
 
         Intent intent = getIntent();
         intentExtra = intent.getStringExtra("intent");

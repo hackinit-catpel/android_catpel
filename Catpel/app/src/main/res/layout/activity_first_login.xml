@@ -89,4 +89,14 @@
         android:layout_below="@+id/login_button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+    <TextView
+        android:id="@+id/hint_fault"
+        android:textColor="#f11b1b"
+        android:visibility="gone"
+        android:text="您的用户名和密码不匹配"
+        android:layout_below="@+id/user_password"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

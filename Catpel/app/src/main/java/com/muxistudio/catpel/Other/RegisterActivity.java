@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import com.muxistudio.catpel.Model.App;
 import com.muxistudio.catpel.Model.CreateUserId;
 import com.muxistudio.catpel.Model.IRetrofit;
-import com.muxistudio.catpel.Model.UserInfo0;
+import com.muxistudio.catpel.POJO.UserInfo0;
 import com.muxistudio.catpel.R;
 
 import okhttp3.OkHttpClient;

@@ -41,11 +41,12 @@ import android.widget.Toast;
 import com.muxistudio.catpel.Model.App;
 import com.muxistudio.catpel.Model.BannedAppInfo;
 import com.muxistudio.catpel.Model.IRetrofit;
-import com.muxistudio.catpel.Model.MyDataBase;
-import com.muxistudio.catpel.Model.SensorUtils;
-import com.muxistudio.catpel.Model.UserInfo4;
-import com.muxistudio.catpel.Model.UserPetInfo;
+import com.muxistudio.catpel.Utils.SensorUtils;
+import com.muxistudio.catpel.POJO.UserInfo4;
+import com.muxistudio.catpel.POJO.UserPetInfo;
 import com.muxistudio.catpel.R;
+import com.muxistudio.catpel.Utils.HomeWatcher;
+import com.muxistudio.catpel.Utils.PopUpWindowUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -211,8 +212,6 @@ public class LoginActivity extends AppCompatActivity
     private DrawerLayout loginLayout;
     //to display time in fractionget
 
-    private MyDataBase database;
-
     private static TextView timeContainer;
     private TextView timeSlash;
     private TextView timeContainer2;
@@ -298,6 +297,8 @@ public class LoginActivity extends AppCompatActivity
             case 1:
                 buildDialog("你的主子危在旦夕","你要是在点击home键,我就要死啦QAQ","我错了","剩余次数1");
                 break;
+            case 0:
+                buildDialog("你的主子就这样和你惜别了","see you~~","我错了",null);
         }
     }
 
@@ -338,11 +339,7 @@ public class LoginActivity extends AppCompatActivity
                 int seconds = App.TIME%60;
                 int minutes = App.TIME/60;
                 userTime.setText(minutes+"min"+seconds+"sec");
-
-
-                userPetStatus.setText(Rank.setTimeContainer2((int)petInfo.getTime())+"");
-
-
+                userPetStatus.setText(Rank.setPetStatus(petInfo.getTime())+"");
                 userName.setText(App.userName);
 
             }
