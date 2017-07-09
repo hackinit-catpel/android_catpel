@@ -113,7 +113,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     App.userToken = usrInfo.getToken();
                     App.userId = usrInfo.getId();
                     App.userName = usrNameStr;
-
                     Intent intent = new Intent(LoginActivity.this, ModifyActivity.class);
                     startActivity(intent);
                     finish();

@@ -82,6 +82,7 @@ public class LoginActivity extends AppCompatActivity
     private int SET_;
     private boolean flag = true;
     private int LAYOUT_WIDTH;
+    private boolean sonOffLine;
 
     private boolean isSet = false;
 
@@ -367,7 +368,19 @@ public class LoginActivity extends AppCompatActivity
         call.enqueue(new Callback<GetBackData>() {
             @Override
             public void onResponse(Call<GetBackData> call, Response<GetBackData> response) {
-                Log.d("childer", "onResponse: ");
+                if(!sonOffLine){
+                    sonOffLine = true;
+                    new AlertDialog.Builder(LoginActivity.this)
+                            .setMessage("您的孩子退出了CatPel")
+                            .setPositiveButton("我知道了", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            })
+                            .show();
+
+                }
             }
 
             @Override

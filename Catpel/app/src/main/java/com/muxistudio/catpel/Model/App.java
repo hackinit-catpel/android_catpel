@@ -21,6 +21,7 @@ public class App extends Application{
     public static String userName;
     public static String userToken;
     public static int userId;
+    public static String son;
 
     public static void removeAll(Stack<String> stringStack){
         stringStack.clear();
