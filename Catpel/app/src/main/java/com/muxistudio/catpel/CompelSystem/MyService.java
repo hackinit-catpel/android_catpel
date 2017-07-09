@@ -13,6 +13,8 @@ import android.util.Log;
 
 import com.muxistudio.catpel.Model.App;
 import com.muxistudio.catpel.Model.IRetrofit;
+import com.muxistudio.catpel.POJO.SendBackStatus;
+import com.muxistudio.catpel.POJO.SendInfo;
 import com.muxistudio.catpel.POJO.UserInfo3;
 import com.muxistudio.catpel.R;
 
@@ -51,6 +53,8 @@ public class MyService extends Service {
     private OkHttpClient client;
     HttpLoggingInterceptor interceptor =
             new HttpLoggingInterceptor();
+
+
 
     private void upLoadTime(){
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -92,6 +96,8 @@ public class MyService extends Service {
         }
         return index;
     }
+
+
     class MyBinder extends Binder {
 
         public void setScheduel(boolean isSet) {
@@ -112,6 +118,33 @@ public class MyService extends Service {
                     }
                 }, 1000, 1000);
             }
+        }
+
+        public void notifyOffLine(){
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+
+            retrofit = new Retrofit.Builder()
+                    .baseUrl("http://119.29.147.14/api/v1.0/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(client)
+                    .build();
+
+            iRetrofit = retrofit.create(IRetrofit.class);
+
+            SendInfo info = new SendInfo(App.userId);
+            Call<SendBackStatus> call = iRetrofit.sendOffLineInfo(info);
+            call.enqueue(new Callback<SendBackStatus>() {
+                @Override
+                public void onResponse(Call<SendBackStatus> call, Response<SendBackStatus> response) {
+                    Log.d("sendtoparents", "success");
+                }
+
+                @Override
+                public void onFailure(Call<SendBackStatus> call, Throwable t) {
+
+                }
+            });
         }
 
         public void setCountDown() {

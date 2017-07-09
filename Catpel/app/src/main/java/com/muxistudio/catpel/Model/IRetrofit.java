@@ -1,5 +1,9 @@
 package com.muxistudio.catpel.Model;
 
+import com.muxistudio.catpel.POJO.GetBackData;
+import com.muxistudio.catpel.POJO.SendBackStatus;
+import com.muxistudio.catpel.POJO.SendFatherInfo;
+import com.muxistudio.catpel.POJO.SendInfo;
 import com.muxistudio.catpel.POJO.UserInfo0;
 import com.muxistudio.catpel.POJO.UserInfo3;
 import com.muxistudio.catpel.POJO.UserInfo4;
@@ -33,5 +37,11 @@ public interface IRetrofit {
 
     @POST("forgive/")
     Call<Integer> forgiveMe(@Body UserInfo4 info4);
+
+    @POST("sendinfo/")
+    Call<SendBackStatus> sendOffLineInfo(@Body SendInfo sendInfo);
+
+    @POST("get/")
+    Call<GetBackData> getOffLineInfo(@Body SendFatherInfo fatherInfo);
 
 }

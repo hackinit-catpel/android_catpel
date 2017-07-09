@@ -41,6 +41,8 @@ import android.widget.Toast;
 import com.muxistudio.catpel.Model.App;
 import com.muxistudio.catpel.Model.BannedAppInfo;
 import com.muxistudio.catpel.Model.IRetrofit;
+import com.muxistudio.catpel.POJO.GetBackData;
+import com.muxistudio.catpel.POJO.SendFatherInfo;
 import com.muxistudio.catpel.Utils.SensorUtils;
 import com.muxistudio.catpel.POJO.UserInfo4;
 import com.muxistudio.catpel.POJO.UserPetInfo;
@@ -82,6 +84,8 @@ public class LoginActivity extends AppCompatActivity
     private int LAYOUT_WIDTH;
 
     private boolean isSet = false;
+
+    private ImageView catAvatar,shader;
 
     private int drawables[] = {
             R.mipmap.categg,R.mipmap.claw2,R.mipmap.egg,
@@ -194,6 +198,7 @@ public class LoginActivity extends AppCompatActivity
         if(!isSet) {
             bindService(intent, serviceConnection, BIND_AUTO_CREATE);
         }
+        bindService(intent,serviceConnection3,BIND_AUTO_CREATE);
         super.onStop();
     }
 
@@ -244,7 +249,7 @@ public class LoginActivity extends AppCompatActivity
             "走开！铲屎的.，放下本喵，安心工作！"
     };
 
-    private MyService.MyBinder myBinder,myBinder2;
+    private MyService.MyBinder myBinder,myBinder2,myBinder3;
 
     private HomeWatcher watcher;
 
@@ -263,6 +268,7 @@ public class LoginActivity extends AppCompatActivity
             @Override
             public void run() {
                 getUserPetInfo();
+                getChildrenOffLine();
 
             }
         },6000,6000);
@@ -354,6 +360,22 @@ public class LoginActivity extends AppCompatActivity
     }
 
 
+    private void getChildrenOffLine(){
+        Log.d("getChildsoffline", "getChildrenOffLine: ");
+        SendFatherInfo info = new SendFatherInfo(App.userId);
+        Call<GetBackData> call = iRetrofit.getOffLineInfo(info);
+        call.enqueue(new Callback<GetBackData>() {
+            @Override
+            public void onResponse(Call<GetBackData> call, Response<GetBackData> response) {
+                Log.d("childer", "onResponse: ");
+            }
+
+            @Override
+            public void onFailure(Call<GetBackData> call, Throwable t) {
+
+            }
+        });
+    }
 
     private void getForgive(){
         Log.d("forgive", "getForgive: ");
@@ -393,6 +415,19 @@ public class LoginActivity extends AppCompatActivity
     }
 
 
+    private ServiceConnection serviceConnection3 = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            myBinder3 = (MyService.MyBinder) iBinder;
+            myBinder3.notifyOffLine();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+
+        }
+    } ;
+
     //this connection aims to count down for the time the app suspended
     private ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
@@ -424,6 +459,12 @@ public class LoginActivity extends AppCompatActivity
 
 
     private void initView(){
+        shader = (ImageView) findViewById(R.id.avatar_shader);
+        catAvatar = (ImageView) findViewById(R.id.cat_avatar);
+
+        shader.bringToFront();
+        catAvatar.bringToFront();
+
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         SensorEventListener sensorEventListener = null;
         sensor = sensorManager.getDefaultSensor(TYPE_ACCELEROMETER);
@@ -576,6 +617,7 @@ public class LoginActivity extends AppCompatActivity
                             App.TIME += App.SET_SECONDS;
                             Toast.makeText(LoginActivity.this, "主人，你设置时间将于 " +
                                     +seconds / 60 + "分" + "结束", Toast.LENGTH_LONG).show();
+                            initCountDownTimer();
                             dialogInterface.dismiss();
                         }
                     }

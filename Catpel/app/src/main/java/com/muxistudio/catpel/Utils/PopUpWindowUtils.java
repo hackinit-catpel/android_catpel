@@ -1,6 +1,7 @@
 package com.muxistudio.catpel.Utils;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,8 +29,8 @@ public class PopUpWindowUtils {
                 inflate(R.layout.layout_popupwindow,null);
         TextView textView = contentView.findViewById(R.id.cat_hint);
         textView.setText("别碰我，去工作");
-
-        final PopupWindow popupWindow = new PopupWindow(contentView, WindowManager.LayoutParams.WRAP_CONTENT
+        textView.setTextSize(20);
+        final PopupWindow popupWindow = new PopupWindow(contentView, WindowManager.LayoutParams.MATCH_PARENT
         , WindowManager.LayoutParams.WRAP_CONTENT,true);
 
         popupWindow.setTouchable(true);
@@ -45,7 +46,9 @@ public class PopUpWindowUtils {
         popupWindow.setBackgroundDrawable(context.getResources().getDrawable(
                 R.mipmap.bubble));
 
-        popupWindow.showAsDropDown(view);
+        //popupWindow.showAsDropDown(view);
+
+        popupWindow.showAtLocation(view, Gravity.LEFT|Gravity.BOTTOM,400,300);
 
     }
 }

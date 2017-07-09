@@ -57,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity{
         iRetrofit = retrofit.create(IRetrofit.class);
         String userName = iUsrName+"";
         String userPassWord = iUsrpassword+"";
-        UserInfo0 info = new UserInfo0(userName,userPassWord);
+        UserInfo0 info = new UserInfo0(userName,userPassWord,"zk");
         Call<CreateUserId> call = iRetrofit.registerUser(info);
         call.enqueue(new Callback<CreateUserId>() {
             @Override
